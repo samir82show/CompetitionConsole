@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" ptype="MONOLITH" ppkg="entity" epkg="domain" v="4.8.2" rws="_15250735763094" Pws="_15250735763094" cws="_15250735763094" persistenceUnitName="SchoolCompetitionPU" sm="false" xs="false" id="_15250735763093" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd">
+    <jpa:entity compositePrimaryKeyClass="SchoolPK" abs="false" class="School" v="true" jbn="false" xre="false" m="false" rootElement="_15250735763093" id="_15250735838735">
+        <jpa:ath>sawad</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="contactPerson" id="_15250736069179">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="phones" id="_152507362830310">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:id attribute-type="String" v="true" xvt="" name="name" id="_152524631839349">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Schools.findAll">
+            <jpa:query>Select e from Schools e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Schools.findByName">
+            <jpa:query>Select s from Schools s where s.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Schools.findByContactPerson">
+            <jpa:query>Select s from Schools s where s.contactPerson=:contactPerson</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Schools.findByPhones">
+            <jpa:query>Select s from Schools s where s.phones=:phones</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="School.findByScore">
+            <jpa:query>Select s from School s where s.score=:score</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="QuestionPK" abs="false" class="Question" v="true" jbn="false" xre="false" m="false" rootElement="_15250735763093" id="_152507372816911">
+        <jpa:ath>sawad</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="content" id="_152507470153314">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="hide" id="_152849712300644">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="video_image_none" id="_152849726855245">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="option1" id="_152883890723437">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="option2" id="_152883891140038">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="option3" id="_152883891446039">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="imageVideoPath" id="_153185819290932">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="multipleTrueFalseDirectAnswer" id="_153191974974451">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="multipleCorrectAnswer" id="_153191980622452">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="trueFalseCorrectAnswer" id="_153191982511253">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="directAnswer" id="_153191983982354">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_152524474598325" v="true" xvt="" name="stage" id="_152524477546929">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:many-to-one>
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_152524527534743" v="true" xvt="" name="questionSubject" id="_152524529009547">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:many-to-one>
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_152883690016751" v="true" xvt="" name="questionPoint" id="_152883710093160">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:many-to-one>
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_152524927971671" connected-attribute-id="_153185809633831" v="true" xvt="" name="episode" id="_153185809633430">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:many-to-one>
+            <jpa:id attribute-type="Long" v="true" xvt="" name="id" id="_152507372816912">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Questions.findAll">
+            <jpa:query>Select e from Questions e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByContent">
+            <jpa:query>Select q from Question q where q.content=:content</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByFile">
+            <jpa:query>Select q from Question q where q.file=:file</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByStage">
+            <jpa:query>Select q from Question q where q.stage=:stage</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByFile_status">
+            <jpa:query>Select q from Question q where q.file_status=:file_status</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findBySubject">
+            <jpa:query>Select q from Question q where q.subject=:subject</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByAnswered">
+            <jpa:query>Select q from Question q where q.answered=:answered</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByPointses">
+            <jpa:query>Select q from Question q where q.pointses=:pointses</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByQuestion_level">
+            <jpa:query>Select q from Question q where q.question_level=:question_level</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByMultiple_choice">
+            <jpa:query>Select q from Question q where q.multiple_choice=:multiple_choice</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByEpisode_no">
+            <jpa:query>Select q from Question q where q.episode_no=:episode_no</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByYesNocorrectAnswer">
+            <jpa:query>Select q from Question q where q.YesNocorrectAnswer=:YesNocorrectAnswer</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByAnswer">
+            <jpa:query>Select q from Question q where q.answer=:answer</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByAnswer">
+            <jpa:query>Select q from Question q where q.answer=:answer</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByYesNoOptions">
+            <jpa:query>Select q from Question q where q.YesNoOptions=:YesNoOptions</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByQuestionPoints">
+            <jpa:query>Select q from Question q where q.questionPoints=:questionPoints</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByHide">
+            <jpa:query>Select q from Question q where q.hide=:hide</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByVideo_image_none">
+            <jpa:query>Select q from Question q where q.video_image_none=:video_image_none</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByMultipleBooleanAnswer">
+            <jpa:query>Select q from Question q where q.multipleBooleanAnswer=:multipleBooleanAnswer</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByYes_no_correct">
+            <jpa:query>Select q from Question q where q.yes_no_correct=:yes_no_correct</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByOption1">
+            <jpa:query>Select q from Question q where q.option1=:option1</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByOption2">
+            <jpa:query>Select q from Question q where q.option2=:option2</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByOption3">
+            <jpa:query>Select q from Question q where q.option3=:option3</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByOption1">
+            <jpa:query>Select q from Question q where q.option1=:option1</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByOption2">
+            <jpa:query>Select q from Question q where q.option2=:option2</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByOption3">
+            <jpa:query>Select q from Question q where q.option3=:option3</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByImageVideoPath">
+            <jpa:query>Select q from Question q where q.imageVideoPath=:imageVideoPath</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByMultipleTrueFalseDirectAnswer">
+            <jpa:query>Select q from Question q where q.multipleTrueFalseDirectAnswer=:multipleTrueFalseDirectAnswer</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByMultipleCorrectAnswer">
+            <jpa:query>Select q from Question q where q.multipleCorrectAnswer=:multipleCorrectAnswer</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByTrueFalseCorrectAnswer">
+            <jpa:query>Select q from Question q where q.trueFalseCorrectAnswer=:trueFalseCorrectAnswer</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Question.findByDirectAnswer">
+            <jpa:query>Select q from Question q where q.directAnswer=:directAnswer</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="PublicFigurePK" abs="false" class="PublicFigure" v="true" jbn="false" xre="false" m="false" rootElement="_15250735763093" id="_152517976491632">
+        <jpa:ath>sawad</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="name" id="_153192043541155">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="brief" id="_153192043922756">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:one-to-one own="true" primaryKey="false" connected-entity-id="_152524872134064" connected-attribute-id="_153192338613365" v="true" name="competitionMatch" id="_153192338612964"/>
+            <jpa:id attribute-type="Integer" v="true" xvt="" name="id" id="_152517976491733">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="PublicFigure.findAll">
+            <jpa:query>Select e from PublicFigure e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="PublicFigure.findById">
+            <jpa:query>Select p from PublicFigure p where p.id=:id</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="PublicFigure.findByBrief">
+            <jpa:query>Select p from PublicFigure p where p.brief=:brief</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="PublicFigure.findByQuest">
+            <jpa:query>Select p from PublicFigure p where p.quest=:quest</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="PublicFigure.findByName">
+            <jpa:query>Select p from PublicFigure p where p.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="PublicFigure.findByBrief">
+            <jpa:query>Select p from PublicFigure p where p.brief=:brief</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="StagePK" abs="false" class="Stage" v="true" jbn="false" xre="false" m="false" rootElement="_15250735763093" id="_152524474598325">
+        <jpa:ath>sawad</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="name" id="_152524478161930">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" xvt="" name="id" id="_152524474598326">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Stage.findAll">
+            <jpa:query>Select e from Stage e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Stage.findByName">
+            <jpa:query>Select s from Stage s where s.name=:name</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="QuestionSubjectPK" abs="false" class="QuestionSubject" v="true" jbn="false" xre="false" m="false" rootElement="_15250735763093" id="_152524527534743">
+        <jpa:ath>sawad</jpa:ath>
+        <jpa:attributes>
+            <jpa:id attribute-type="String" v="true" xvt="" name="question_subject" id="_152524527536244">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="QuestionSubject.findAll">
+            <jpa:query>Select e from QuestionSubject e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="QuestionSubject.findByType_description">
+            <jpa:query>Select q from QuestionSubject q where q.type_description=:type_description</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="CompetitionMatchPK" abs="false" class="CompetitionMatch" v="true" jbn="false" xre="false" m="false" rootElement="_15250735763093" id="_152524872134064">
+        <jpa:ath>sawad</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="Integer" v="true" xvt="" name="score1" id="_152849582456941">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Integer" v="true" xvt="" name="score2" id="_152849583260742">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Integer" v="true" xvt="" name="status" id="_152883893831340">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_152524927971671" v="true" xvt="" name="episode" id="_152524929960275">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:many-to-one>
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_15250735838735" v="true" xvt="" name="school1" id="_152883699124156">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:many-to-one>
+            <jpa:many-to-one optional="true" primaryKey="false" connected-entity-id="_15250735838735" v="true" xvt="" name="school2" id="_152883700125158">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:many-to-one>
+            <jpa:one-to-one primaryKey="false" connected-entity-id="_152517976491632" connected-attribute-id="_153192338612964" v="true" name="publicFigure" id="_153192338613365"/>
+            <jpa:id attribute-type="Long" v="true" xvt="" name="id" id="_152524872134065">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="CompetitionMatch.findAll">
+            <jpa:query>Select e from CompetitionMatch e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="CompetitionMatch.findByScore1">
+            <jpa:query>Select m from CompetitionMatch m where m.score1=:score1</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="CompetitionMatch.findByScore1">
+            <jpa:query>Select m from CompetitionMatch m where m.score1=:score1</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="CompetitionMatch.findByScore2">
+            <jpa:query>Select m from CompetitionMatch m where m.score2=:score2</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="CompetitionMatch.findByScore1">
+            <jpa:query>Select m from CompetitionMatch m where m.score1=:score1</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="CompetitionMatch.findByScore2">
+            <jpa:query>Select m from CompetitionMatch m where m.score2=:score2</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="CompetitionMatch.findByStatus">
+            <jpa:query>Select m from CompetitionMatch m where m.status=:status</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="EpisodePK" abs="false" class="Episode" v="true" jbn="false" xre="false" m="false" rootElement="_15250735763093" id="_152524927971671">
+        <jpa:ath>sawad</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" name="name" id="_152524932990778">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:one-to-many orp="false" collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_152507372816911" connected-attribute-id="_153185809633430" v="true" xvt="" name="questions" id="_153185809633831">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:one-to-many>
+            <jpa:id attribute-type="Long" v="true" xvt="" name="id" id="_152524927973672">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Episode.findAll">
+            <jpa:query>Select e from Episode e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Episode.findByName">
+            <jpa:query>Select e from Episode e where e.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Episode.findByScore1">
+            <jpa:query>Select e from Episode e where e.score1=:score1</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Episode.findByScore2">
+            <jpa:query>Select e from Episode e where e.score2=:score2</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="QuestionPointPK" abs="false" class="QuestionPoint" v="true" jbn="false" xre="false" m="false" rootElement="_15250735763093" id="_152883690016751">
+        <jpa:ath>sawad</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="Integer" v="true" xvt="" name="points" id="_152883692136254">
+                <jpa:xwm/>
+                <jpa:xm/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" xvt="" name="id" id="_152883690019452">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="QuestionPoint.findAll">
+            <jpa:query>Select e from QuestionPoint e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="QuestionPoint.findByPoints">
+            <jpa:query>Select q from QuestionPoint q where q.points=:points</jpa:query>
+        </jpa:nq>
+    </jpa:entity>
+    <jpa:snp loc="BEFORE_PACKAGE" e="true">/**
+ * This file was generated by the Jeddict
+ */</jpa:snp>
+    <jpa:c>
+        <ct>java.util.List</ct>
+        <ct>java.util.Set</ct>
+        <ct>java.util.Map</ct>
+        <ct>java.util.Collection</ct>
+        <cit>java.util.ArrayList</cit>
+        <cit>java.util.LinkedList</cit>
+        <cit>java.util.HashSet</cit>
+        <cit>java.util.TreeSet</cit>
+        <cit>java.util.HashMap</cit>
+    </jpa:c>
+    <jpa:wsl>
+        <jpa:ws n="Main" id="_15250735763094">
+            <i ref="_152524527534743" x="641" y="-15"/>
+            <i ref="_152517976491632" x="60" y="512"/>
+            <i ref="_152883690016751" x="441" y="-15"/>
+            <i ref="_152524927971671" x="244" y="2"/>
+            <i ref="_152524474598325" x="737" y="260"/>
+            <i ref="_152507372816911" x="377" y="128"/>
+            <i ref="_15250735838735" x="90" y="188"/>
+            <i ref="_152524872134064" x="27" y="-40"/>
+        </jpa:ws>
+    </jpa:wsl>
+</jpa:entity-mappings>

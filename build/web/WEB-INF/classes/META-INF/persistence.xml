@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="SchoolCompetitionPU" transaction-type="JTA">
+    <jta-data-source>java:app/jdbc/school</jta-data-source>
+    <class>entity.domain.School</class>
+    <class>entity.domain.Question</class>
+    <class>entity.domain.PublicFigure</class>
+    <class>entity.domain.Stage</class>
+    <class>entity.domain.QuestionSubject</class>
+    <class>entity.domain.Match</class>
+    <class>entity.domain.Episode</class>
+    <class>entity.domain.QuestionPoint</class>
+    <class>entity.domain.CompetitionMatch</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+    </properties>
+  </persistence-unit>
+</persistence>

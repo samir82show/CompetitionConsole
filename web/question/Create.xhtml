@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateQuestionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form enctype="multipart/form-data">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{questionController.selected.id}" title="#{bundle.CreateQuestionTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_content}" for="content" />
+                    <h:inputTextarea id="content" value="#{questionController.selected.content}" title="#{bundle.CreateQuestionTitle_content}" />
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_hide}" for="hide" />
+                    <h:selectOneMenu id="hide" value = "#{questionController.selected.hide}" title="#{bundle.CreateQuestionTitle_hide}"> 
+                        <f:selectItem itemLabel = "Show" itemValue = "0" /> 
+                        <f:selectItem itemLabel = "Hide" itemValue = "1" />
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_video_image_none}" for="video_image_none" />
+                    <h:selectOneListbox id="video_image_none" value = "#{questionController.selected.video_image_none}" title="#{bundle.CreateQuestionTitle_hide}"> 
+                        <f:selectItem itemLabel = "Text" itemValue = "0" /> 
+                        <f:selectItem itemLabel = "Image" itemValue = "1" />
+                        <f:selectItem itemLabel = "Video" itemValue = "2" />
+                    </h:selectOneListbox>
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_imageVideoPath}" for="imageVideoPath" />
+                    <h:inputFile id="imageVideoPath" value="#{questionController.image}" title="#{bundle.CreateQuestionTitle_imageVideoPath}"/>
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_multipleTrueFalseDirectAnswer}" for="multipleTrueFalseDirectAnswer" />
+                    <h:selectOneListbox id="multipleTrueFalseDirectAnswer" value = "#{questionController.selected.multipleTrueFalseDirectAnswer}" title="#{bundle.CreateQuestionTitle_multipleTrueFalseDirectAnswer}"> 
+                        <f:selectItem itemLabel = "Direct Answer" itemValue = "0" /> 
+                        <f:selectItem itemLabel = "Multiple" itemValue = "1" />
+                        <f:selectItem itemLabel = "True/False" itemValue = "2" />
+                    </h:selectOneListbox>
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_directAnswer}" for="directAnswer" />
+                    <h:inputText id="directAnswer" value="#{questionController.selected.directAnswer}" title="#{bundle.CreateQuestionTitle_directAnswer}" />
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_option1}" for="option1" />
+                    <h:inputTextarea id="option1" value="#{questionController.selected.option1}" title="#{bundle.CreateQuestionTitle_option1}" />
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_option2}" for="option2" />
+                    <h:inputTextarea id="option2" value="#{questionController.selected.option2}" title="#{bundle.CreateQuestionTitle_option2}" />
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_option3}" for="option3" />
+                    <h:inputTextarea id="option3" value="#{questionController.selected.option3}" title="#{bundle.CreateQuestionTitle_option3}" />
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_multipleCorrectAnswer}" for="multipleCorrectAnswer" />
+                    <h:selectOneListbox id="multipleCorrectAnswer" value = "#{questionController.selected.multipleCorrectAnswer}" title="#{bundle.CreateQuestionTitle_multipleCorrectAnswer}"> 
+                        <f:selectItem itemLabel = "1" itemValue = "1" /> 
+                        <f:selectItem itemLabel = "2" itemValue = "2" />
+                        <f:selectItem itemLabel = "3" itemValue = "3" />
+                    </h:selectOneListbox>
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_trueFalseCorrectAnswer}" for="trueFalseCorrectAnswer" />
+                    <h:selectOneListbox id="trueFalseCorrectAnswer" value = "#{questionController.selected.trueFalseCorrectAnswer}" title="#{bundle.CreateQuestionTitle_trueFalseCorrectAnswer}"> 
+                        <f:selectItem itemLabel = "True" itemValue = "1" /> 
+                        <f:selectItem itemLabel = "False" itemValue = "0" />
+                    </h:selectOneListbox>
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_stage}" for="stage" />
+                    <h:selectOneMenu id="stage" value="#{questionController.selected.stage}" title="#{bundle.CreateQuestionTitle_stage}" >
+                        <f:selectItems value="#{stageController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_questionSubject}" for="questionSubject" />
+                    <h:selectOneMenu id="questionSubject" value="#{questionController.selected.questionSubject}" title="#{bundle.CreateQuestionTitle_questionSubject}" >
+                        <f:selectItems value="#{questionSubjectController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_publicFigure}" for="publicFigure" />
+                    <h:selectOneMenu id="publicFigure" value="#{questionController.selected.publicFigure}" title="#{bundle.CreateQuestionTitle_publicFigure}" >
+                        <f:selectItems value="#{publicFigureController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_questionPoint}" for="questionPoint" />
+                    <h:selectOneMenu id="questionPoint" value="#{questionController.selected.questionPoint}" title="#{bundle.CreateQuestionTitle_questionPoint}" >
+                        <f:selectItems value="#{questionPointController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateQuestionLabel_episode}" for="episode" />
+                    <h:selectOneMenu id="episode" value="#{questionController.selected.episode}" title="#{bundle.CreateQuestionTitle_episode}" >
+                        <f:selectItems value="#{episodeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{questionController.create}" value="#{bundle.CreateQuestionSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{questionController.prepareList}" value="#{bundle.CreateQuestionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateQuestionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

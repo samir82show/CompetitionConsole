@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCompetitionMatchTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCompetitionMatchEmpty}" rendered="#{competitionMatchController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{competitionMatchController.items.rowCount > 0}">
+                    <h:outputText value="#{competitionMatchController.pagination.pageFirstItem + 1}..#{competitionMatchController.pagination.pageLastItem + 1}/#{competitionMatchController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{competitionMatchController.previous}" value="#{bundle.Previous} #{competitionMatchController.pagination.pageSize}" rendered="#{competitionMatchController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{competitionMatchController.next}" value="#{bundle.Next} #{competitionMatchController.pagination.pageSize}" rendered="#{competitionMatchController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{competitionMatchController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCompetitionMatchTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCompetitionMatchTitle_score1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.score1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCompetitionMatchTitle_score2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.score2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCompetitionMatchTitle_status}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.status}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCompetitionMatchTitle_episode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.episode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCompetitionMatchTitle_school1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.school1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCompetitionMatchTitle_school2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.school2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{competitionMatchController.prepareView}" value="#{bundle.ListCompetitionMatchViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{competitionMatchController.prepareEdit}" value="#{bundle.ListCompetitionMatchEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{competitionMatchController.destroy}" value="#{bundle.ListCompetitionMatchDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{competitionMatchController.prepareCreate}" value="#{bundle.ListCompetitionMatchCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCompetitionMatchIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

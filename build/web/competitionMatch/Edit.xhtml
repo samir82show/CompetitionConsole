@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCompetitionMatchTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCompetitionMatchLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{competitionMatchController.selected.id}" title="#{bundle.EditCompetitionMatchTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditCompetitionMatchLabel_score1}" for="score1" />
+                    <h:inputText id="score1" value="#{competitionMatchController.selected.score1}" title="#{bundle.EditCompetitionMatchTitle_score1}" />
+                    <h:outputLabel value="#{bundle.EditCompetitionMatchLabel_score2}" for="score2" />
+                    <h:inputText id="score2" value="#{competitionMatchController.selected.score2}" title="#{bundle.EditCompetitionMatchTitle_score2}" />
+                    <h:outputLabel value="#{bundle.EditCompetitionMatchLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{competitionMatchController.selected.status}" title="#{bundle.EditCompetitionMatchTitle_status}" />
+                    <h:outputLabel value="#{bundle.EditCompetitionMatchLabel_episode}" for="episode" />
+                    <h:selectOneMenu id="episode" value="#{competitionMatchController.selected.episode}" title="#{bundle.EditCompetitionMatchTitle_episode}" >
+                        <f:selectItems value="#{episodeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditCompetitionMatchLabel_school1}" for="school1" />
+                    <h:selectOneMenu id="school1" value="#{competitionMatchController.selected.school1}" title="#{bundle.EditCompetitionMatchTitle_school1}" >
+                        <f:selectItems value="#{schoolController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditCompetitionMatchLabel_school2}" for="school2" />
+                    <h:selectOneMenu id="school2" value="#{competitionMatchController.selected.school2}" title="#{bundle.EditCompetitionMatchTitle_school2}" >
+                        <f:selectItems value="#{schoolController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{competitionMatchController.update}" value="#{bundle.EditCompetitionMatchSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCompetitionMatchViewLink}"/>
+                <br />
+                <h:commandLink action="#{competitionMatchController.prepareList}" value="#{bundle.EditCompetitionMatchShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCompetitionMatchIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCompetitionMatchTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCompetitionMatchLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{competitionMatchController.selected.id}" title="#{bundle.CreateCompetitionMatchTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateCompetitionMatchLabel_score1}" for="score1" />
+                    <h:inputText disabled="true" id="score1" value="#{competitionMatchController.selected.score1}" title="#{bundle.CreateCompetitionMatchTitle_score1}" />
+                    <h:outputLabel value="#{bundle.CreateCompetitionMatchLabel_score2}" for="score2" />
+                    <h:inputText disabled="true" id="score2" value="#{competitionMatchController.selected.score2}" title="#{bundle.CreateCompetitionMatchTitle_score2}" />
+                    <h:outputLabel value="#{bundle.CreateCompetitionMatchLabel_status}" for="status" />
+                    <h:selectOneMenu id="status" value = "#{competitionMatchController.selected.status}" title="#{bundle.CreateCompetitionMatchTitle_status}"> 
+                        <f:selectItem itemLabel = "Running" itemValue = "1" /> 
+                        <f:selectItem itemLabel = "Stopped" itemValue = "0" />
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateCompetitionMatchLabel_episode}" for="episode" />
+                    <h:selectOneMenu id="episode" value="#{competitionMatchController.selected.episode}" title="#{bundle.CreateCompetitionMatchTitle_episode}" >
+                        <f:selectItems value="#{episodeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateCompetitionMatchLabel_school1}" for="school1" />
+                    <h:selectOneMenu id="school1" value="#{competitionMatchController.selected.school1}" title="#{bundle.CreateCompetitionMatchTitle_school1}" >
+                        <f:selectItems value="#{schoolController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateCompetitionMatchLabel_school2}" for="school2" />
+                    <h:selectOneMenu id="school2" value="#{competitionMatchController.selected.school2}" title="#{bundle.CreateCompetitionMatchTitle_school2}" >
+                        <f:selectItems value="#{schoolController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{competitionMatchController.create}" value="#{bundle.CreateCompetitionMatchSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{competitionMatchController.prepareList}" value="#{bundle.CreateCompetitionMatchShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCompetitionMatchIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

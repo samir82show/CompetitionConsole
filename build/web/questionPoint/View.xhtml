@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewQuestionPointTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewQuestionPointLabel_id}"/>
+                    <h:outputText value="#{questionPointController.selected.id}" title="#{bundle.ViewQuestionPointTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewQuestionPointLabel_points}"/>
+                    <h:outputText value="#{questionPointController.selected.points}" title="#{bundle.ViewQuestionPointTitle_points}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{questionPointController.destroyAndView}" value="#{bundle.ViewQuestionPointDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewQuestionPointEditLink}"/>
+                <br />
+                <h:commandLink action="#{questionPointController.prepareCreate}" value="#{bundle.ViewQuestionPointCreateLink}" />
+                <br />
+                <h:commandLink action="#{questionPointController.prepareList}" value="#{bundle.ViewQuestionPointShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewQuestionPointIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

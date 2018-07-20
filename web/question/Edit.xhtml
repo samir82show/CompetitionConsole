@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditQuestionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{questionController.selected.id}" title="#{bundle.EditQuestionTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_content}" for="content" />
+                    <h:inputText id="content" value="#{questionController.selected.content}" title="#{bundle.EditQuestionTitle_content}" />
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_hide}" for="hide" />
+                    <h:inputText id="hide" value="#{questionController.selected.hide}" title="#{bundle.EditQuestionTitle_hide}" />
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_video_image_none}" for="video_image_none" />
+                    <h:inputText id="video_image_none" value="#{questionController.selected.video_image_none}" title="#{bundle.EditQuestionTitle_video_image_none}" />
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_option1}" for="option1" />
+                    <h:inputText id="option1" value="#{questionController.selected.option1}" title="#{bundle.EditQuestionTitle_option1}" />
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_option2}" for="option2" />
+                    <h:inputText id="option2" value="#{questionController.selected.option2}" title="#{bundle.EditQuestionTitle_option2}" />
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_option3}" for="option3" />
+                    <h:inputText id="option3" value="#{questionController.selected.option3}" title="#{bundle.EditQuestionTitle_option3}" />
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_imageVideoPath}" for="imageVideoPath" />
+                    <h:inputText id="imageVideoPath" value="#{questionController.selected.imageVideoPath}" title="#{bundle.EditQuestionTitle_imageVideoPath}" />
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_multipleTrueFalseDirectAnswer}" for="multipleTrueFalseDirectAnswer" />
+                    <h:inputText id="multipleTrueFalseDirectAnswer" value="#{questionController.selected.multipleTrueFalseDirectAnswer}" title="#{bundle.EditQuestionTitle_multipleTrueFalseDirectAnswer}" />
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_multipleCorrectAnswer}" for="multipleCorrectAnswer" />
+                    <h:inputText id="multipleCorrectAnswer" value="#{questionController.selected.multipleCorrectAnswer}" title="#{bundle.EditQuestionTitle_multipleCorrectAnswer}" />
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_trueFalseCorrectAnswer}" for="trueFalseCorrectAnswer" />
+                    <h:inputText id="trueFalseCorrectAnswer" value="#{questionController.selected.trueFalseCorrectAnswer}" title="#{bundle.EditQuestionTitle_trueFalseCorrectAnswer}" />
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_directAnswer}" for="directAnswer" />
+                    <h:inputText id="directAnswer" value="#{questionController.selected.directAnswer}" title="#{bundle.EditQuestionTitle_directAnswer}" />
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_stage}" for="stage" />
+                    <h:selectOneMenu id="stage" value="#{questionController.selected.stage}" title="#{bundle.EditQuestionTitle_stage}" >
+                        <f:selectItems value="#{stageController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_questionSubject}" for="questionSubject" />
+                    <h:selectOneMenu id="questionSubject" value="#{questionController.selected.questionSubject}" title="#{bundle.EditQuestionTitle_questionSubject}" >
+                        <f:selectItems value="#{questionSubjectController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_publicFigure}" for="publicFigure" />
+                    <h:selectOneMenu id="publicFigure" value="#{questionController.selected.publicFigure}" title="#{bundle.EditQuestionTitle_publicFigure}" >
+                        <f:selectItems value="#{publicFigureController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_questionPoint}" for="questionPoint" />
+                    <h:selectOneMenu id="questionPoint" value="#{questionController.selected.questionPoint}" title="#{bundle.EditQuestionTitle_questionPoint}" >
+                        <f:selectItems value="#{questionPointController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditQuestionLabel_episode}" for="episode" />
+                    <h:selectOneMenu id="episode" value="#{questionController.selected.episode}" title="#{bundle.EditQuestionTitle_episode}" >
+                        <f:selectItems value="#{episodeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{questionController.update}" value="#{bundle.EditQuestionSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditQuestionViewLink}"/>
+                <br />
+                <h:commandLink action="#{questionController.prepareList}" value="#{bundle.EditQuestionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditQuestionIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

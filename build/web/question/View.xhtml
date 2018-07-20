@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewQuestionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewQuestionLabel_id}"/>
+                    <h:outputText value="#{questionController.selected.id}" title="#{bundle.ViewQuestionTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_content}"/>
+                    <h:outputText value="#{questionController.selected.content}" title="#{bundle.ViewQuestionTitle_content}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_hide}"/>
+                    <h:outputText value="#{questionController.selected.hide}" title="#{bundle.ViewQuestionTitle_hide}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_video_image_none}"/>
+                    <h:outputText value="#{questionController.selected.video_image_none}" title="#{bundle.ViewQuestionTitle_video_image_none}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_option1}"/>
+                    <h:outputText value="#{questionController.selected.option1}" title="#{bundle.ViewQuestionTitle_option1}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_option2}"/>
+                    <h:outputText value="#{questionController.selected.option2}" title="#{bundle.ViewQuestionTitle_option2}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_option3}"/>
+                    <h:outputText value="#{questionController.selected.option3}" title="#{bundle.ViewQuestionTitle_option3}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_imageVideoPath}"/>
+                    <h:outputText value="#{questionController.selected.imageVideoPath}" title="#{bundle.ViewQuestionTitle_imageVideoPath}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_multipleTrueFalseDirectAnswer}"/>
+                    <h:outputText value="#{questionController.selected.multipleTrueFalseDirectAnswer}" title="#{bundle.ViewQuestionTitle_multipleTrueFalseDirectAnswer}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_multipleCorrectAnswer}"/>
+                    <h:outputText value="#{questionController.selected.multipleCorrectAnswer}" title="#{bundle.ViewQuestionTitle_multipleCorrectAnswer}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_trueFalseCorrectAnswer}"/>
+                    <h:outputText value="#{questionController.selected.trueFalseCorrectAnswer}" title="#{bundle.ViewQuestionTitle_trueFalseCorrectAnswer}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_directAnswer}"/>
+                    <h:outputText value="#{questionController.selected.directAnswer}" title="#{bundle.ViewQuestionTitle_directAnswer}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_stage}"/>
+                    <h:outputText value="#{questionController.selected.stage}" title="#{bundle.ViewQuestionTitle_stage}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_questionSubject}"/>
+                    <h:outputText value="#{questionController.selected.questionSubject}" title="#{bundle.ViewQuestionTitle_questionSubject}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_publicFigure}"/>
+                    <h:outputText value="#{questionController.selected.publicFigure}" title="#{bundle.ViewQuestionTitle_publicFigure}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_questionPoint}"/>
+                    <h:outputText value="#{questionController.selected.questionPoint}" title="#{bundle.ViewQuestionTitle_questionPoint}"/>
+                    <h:outputText value="#{bundle.ViewQuestionLabel_episode}"/>
+                    <h:outputText value="#{questionController.selected.episode}" title="#{bundle.ViewQuestionTitle_episode}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{questionController.destroyAndView}" value="#{bundle.ViewQuestionDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewQuestionEditLink}"/>
+                <br />
+                <h:commandLink action="#{questionController.prepareCreate}" value="#{bundle.ViewQuestionCreateLink}" />
+                <br />
+                <h:commandLink action="#{questionController.prepareList}" value="#{bundle.ViewQuestionShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewQuestionIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
